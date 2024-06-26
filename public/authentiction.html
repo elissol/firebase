@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Autentificação</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+        <!-- update the version number as needed -->
+        <script defer src="/__/firebase/10.12.2/firebase-app-compat.js"></script>
+        <!-- include only the Firebase features as you need -->
+        <script defer src="/__/firebase/10.12.2/firebase-auth-compat.js"></script>
+     
+        <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+</head>
+
+<style>
+
+    .content {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+<body>
+    <div class="content">
+        <div>
+            <h1>Autenticação</h1>
+            <h3 class="text-center" id="displayName">Você não está autenticado</h3>
+            <br>
+            <form>
+                <div class="form-group">
+                    <label for="emailInput">E-mail</label>
+                    <input type="email" class="form-control" id="emailInput" placeholder="E-mail">
+                </div>
+                <div class="form-group mt-2">
+                    <label for="passwordInput">Senha</label>
+                    <input type="password" class="form-control" id="passwordInput" placeholder="Senha">
+                </div>
+            </form>
+    
+            <div class="mt-3">
+                <button class="btn btn-lg btn-block btn-primary" id="authEmailPassButton">Autenticar</button>
+                <button class="btn btn-lg btn-block btn-info" id="createUserButton">Criar Nova Conta</button>
+            </div>
+            <br>
+    
+            <p class="text-center"><small>-- ou --</small></p>
+    
+            <p class="text-center">
+                <button class="btn btn-lg btn-default" id="authGitHubButton"><i class="fa fa-github fa-2x"></i></button>
+                <button class="btn btn-lg btn-danger" id="authGoogleButton"><i class="fa fa-google fa-2x"></i></button>
+                <button class="btn btn-lg btn-warning" id="authAnonymouslyButton"><i class="fa fa-user fa-2x"></i></button>
+            </p>
+    
+            <br>
+    
+            <p class="text-center">
+                <button class="btn btn-lg btn-block btn-default" id="logOutButton">Sair</button>
+            </p>
+
+            <a class="button button-clear" href="index.html">Voltar para Home</a>
+
+        </div>
+    </div>
+
+
+
+
+    <script src="config.js"></script>
+   <!---- <script src="authentication.js"></script> -->
+    <script type="module" src="authentication.js"></script>
+</body>
+
+</html>

@@ -1,1 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Pipoca Gourmet</title>
+        <!-- update the version number as needed -->
+        <script defer src="/__/firebase/10.12.2/firebase-app-compat.js"></script>
+        <!-- include only the Firebase features as you need -->
+        <script defer src="/__/firebase/10.12.2/firebase-auth-compat.js"></script>
+     
+        <!-- 
+          initialize the SDK after all desired features are loaded, set useEmulator to false
+          to avoid connecting the SDK to running emulators.
+        -->
+        <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">   
+</head>
+<body id="page-top">
+    <script type="module">
+        
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getDatabase, ref, get, set, child, push, update, remove } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyBRp-B6kD6xRUfahMitJB0Lc7zdKhmpaWI",
+          authDomain: "trabalho-pipoca.firebaseapp.com",
+          databaseURL: "https://trabalho-pipoca-default-rtdb.firebaseio.com",
+          projectId: "trabalho-pipoca",
+          storageBucket: "trabalho-pipoca.appspot.com",
+          messagingSenderId: "512742795257",
+          appId: "1:512742795257:web:c4eb42521a2fa1d6b4ff28",
+          measurementId: "G-R2F8JVXLCG"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+      
+        const db=getDatabase();
+      
+        function inserirDados(){
+      
+          set(ref(db, "Produtos/"),{
+               descricao:"Ninho",
+               peso: "100g"
+      
+          }).then(()=>{
+               console.log("incluído com sucesso");
+          })
+          .catch((error)=>{
+               console.log("erro de inclusão");
+          })
+      }  
+    </script>
+          <!-- Navigation-->
+          <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #640D6B;">
+              <div class="container">            
+                  <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                      Menu
+                      <i class="fas fa-bars"></i>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarResponsive">
+                      <ul class="navbar-nav ms-auto">
+                          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#page-top">Home</a></li>
+                          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#sobre">Sobre</a></li>
+                          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contato">Contato</a></li>
+                          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="carrinho.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="authentiction.html">Entrar</a></li>
+                          
+                      </ul>
+                  </div>
+              </div>
+          </nav>
+          <header class="masthead text-white text-center" style="background-color: #FF76CE;">
+              <div class="container d-flex align-items-center flex-column">
+                  <img class="masthead-avatar mb-5" src="img/pipocasam.jpeg" alt="pipocas">
+                  <h3 class="masthead-heading text-uppercase mb-0">Pipoca Gourmet</h3>           
+                  <div class="divider-custom divider-light">
+                      <div class="divider-custom-line"></div>
+                      <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                      <div class="divider-custom-line"></div>
+                  </div>                   
+              </div>
+          </header>   
+          <form>
+              <section class="page-section portfolio" id="cardapio">
+                  <div class="container d-flex align-items-center flex-column">
+                      <div class="row justify-content-center">
+                          <h2>Cardápio</h2>
+                          <div class="col-md-4 col-lg-4 mb-5">
+                              <img class="img-fluid" src="img/ninho2.jpeg" alt="">
+                              <div class="form-group">
+                                  <h3>Ninho</h3>
+                                  <label for="pesoNinho">Peso</label>
+                                  <select id="pesoNinho" class="form-select">
+                                      <option value="100">100g</option>
+                                      <option value="50">50g</option>
+                                      <option value="45">45g</option>
+                                  </select>
+                                  <label for="qtdNinho">Quantidade</label>
+                                  <input min="1" class="form-control form-control-sm" id="qtdNinho" aria-describedby="quantidade" placeholder="Entre com a Quantidade">
+                                  <button type="button" id = "btGravar1" class="btn btn-primary" style="background: #E65C19;">Gravar BD</button> 
+                                  <button type="button" class="btn btn-primary" style="background: #E65C19;" onclick="addObjCartSession('Ninho', document.getElementById('pesoNinho').value, document.getElementById('qtdNinho').value)">Adicionar</button>                   
+                              </div> 
+                          </div>   
+                          <div class="col-md-4 col-lg-4 mb-5">
+                              <img class="img-fluid" src="img/trufadaflor.jpeg" alt="">
+                              <div class="form-group">
+                                  <h3>Trufada</h3>
+                                  <label for="pesoTrufada">Peso</label>
+                                  <select id="pesoTrufada" class="form-select">
+                                      <option value="100">100g</option>
+                                      <option value="50">50g</option>
+                                      <option value="45">45g</option>
+                                  </select>
+                                  <label for="qtdTrufada">Quantidade</label>
+                                  <input min="1" class="form-control form-control-sm" id="qtdTrufada" aria-describedby="quantidade" placeholder="Entre com a Quantidade"> 
+                                  <button type="button" id = "btGravar2" class="btn btn-primary" style="background: #E65C19;">Gravar BD</button>                   
+                                  <button type="button" class="btn btn-primary" style="background: #E65C19;" onclick="addObjCartSession('Trufada', document.getElementById('pesoTrufada').value, document.getElementById('qtdTrufada').value)">Adicionar</button>                   
+                              </div>
+                          </div>
+                          <div class="col-md-4 col-lg-4 mb-5">
+                              <img class="img-fluid" src="img/limao.jpeg" alt="">
+                              <div class="form-group">
+                                  <h3>Tortinha</h3>
+                                  <label for="pesoTortinha">Peso</label>
+                                  <select id="pesoTortinha" class="form-select">
+                                      <option value="100">100g</option>
+                                      <option value="50">50g</option>
+                                      <option value="45">45g</option>
+                                  </select>
+                                  <label for="qtdTortinha">Quantidade</label>
+                                  <input min="1" class="form-control form-control-sm" id="qtdTortinha" aria-describedby="quantidade" placeholder="Entre com a Quantidade">
+                                  <button type="button" id = "btGravar3" class="btn btn-primary" style="background: #E65C19;">Gravar BD</button> 
+                     
+                                  <button type="button" class="btn btn-primary" style="background: #E65C19;" onclick="addObjCartSession('Tortinha', document.getElementById('pesoTortinha').value, document.getElementById('qtdTortinha').value)">Adicionar</button>    
+                                   
+                              </div> 
+                          </div>
+                      </div>
+                  </div>
+              </section>
+          </form>
+          <section class="page-section text-white mb-0" id="sobre" style="background-color: #FF76CE;">
+              <div class="container d-flex align-items-center flex-column">            
+                  <div class="row">
+                      <div class="col-lg-4 ms-auto">
+                          <h2>Sobre</h2>
+                          <p class="lead">
+                              Nossa Pipoca Gourmet é crocante e saborosa. 
+                              Feita com grãos cuidadosamente selecionados, nossa pipoca é uma delícia agrada a todos os paladares,crianças,adultos e jovens.                                                    
+                               Ao escolher nossa Pipoca Gourmet, você não está apenas desfrutando de um lanche delicioso, mas também está se beneficiando das propriedades nutritivas do milho.  
+                               Descubra uma explosão de sabor e saúde em cada mordida com nossas Pipocas Gourmet.
+                          </p>
+                      </div>
+                      <div class="col-lg-4 ms-auto">
+                          <p class="lead">
+                              <h3>Contatos</h3>
+                              <div class="contatos-secao">
+                                  <div>
+                                      <i class="fas fa-phone"></i>
+                                      <span>(19) 99156-3950</span>
+                                  </div>
+                                  <div>
+                                      <i class="fa-brands fa-instagram"></i>
+                                      <span>@pipocadoceinfancia</span>
+                                  </div>
+                              </div>
+                          </p>
+                      </div>
+                  </div>
+              </div>
+          </section>
+          <footer class="text-white mb-0" style="background-color: #640D6B;">
+              <h4>Desenvolvido por Elisângela Silva Oliveira</h4> 
+              <p id="demo"></p>       
+          </footer>            
+          <script src="./js/bootstrap.min.js"></script>
+          <script src="./js/all.min.js"></script> 
+          <script src="./js/script.js"></script>
+          <script type="module" src="config.js"></script>
+      </body>
+</html>

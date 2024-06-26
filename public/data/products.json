@@ -1,0 +1,26 @@
+[
+    {
+        "nome": "Ninho",
+        "pesos": [
+            { "peso": 100, "preco": 13.0 },
+            { "peso": 50, "preco": 6.5 },
+            { "peso": 45, "preco": 4.5 }
+        ]
+    },
+    {
+        "nome": "Trufada",
+        "pesos": [
+            { "peso": 100, "preco": 13.0 },
+            { "peso": 50, "preco": 6.5 },
+            { "peso": 45, "preco": 4.5 }
+        ]
+    },
+    {
+        "nome": "Tortinha",
+        "pesos": [
+            { "peso": 100, "preco": 13.0 },
+            { "peso": 50, "preco": 6.5 },
+            { "peso": 45, "preco": 4.5 }
+        ]
+    }
+]

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+</head>
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav" style="background-color: #640D6B;">
+        <div class="container">            
+            <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.html">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="masthead text-white text-center" style="background-color: #FF76CE;">
+        <div class="container d-flex align-items-center flex-column">
+            <h3 class="masthead-heading text-uppercase mb-0">Carrinho de Compras</h3>           
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>                   
+        </div>
+    </header>
+    <section class="page-section portfolio" id="carrinho">
+        <div class="container d-flex align-items-center flex-column">
+            <div class="row justify-content-center">
+                <h2>Carrinho</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Produto</th>
+                            <th scope="col">Peso</th>
+                            <th scope="col">Quantidade</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items">
+                    </tbody>
+                </table>
+                <button class="btn btn-primary" onclick="clearCart()">Limpar Carrinho</button>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="text-white mb-0" style="background-color: #640D6B;">
+        <h4>Desenvolvido por Elisângela Silva Oliveira</h4>
+    </footer>            
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/cart.js"></script>
+    
+      
+</body>
+</html>
